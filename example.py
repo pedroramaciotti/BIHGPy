@@ -4,6 +4,9 @@ from scipy.special import beta
 import matplotlib.pyplot as plt
 from scipy.special import gamma
 
+import time
+
+
 import bihgpy
 
 # parameters of the prior distribution (beta-binomial)
@@ -11,20 +14,20 @@ a=1
 b=1
 
 # parameters of the hyper-geometric distribution an outcome of the experiment
-N=1000
-n=500
+N=50000
+n=2000
 k=0
 
-# computing the bayesian inference
 
-K_dom,K_img = bihgpy.posterior_density(N,n,k,a,b)
+# computing the bayesian inference
+K_dom,K_img = bihgpy.K_posterior_distribution(N,n,k,a,b,omit_tail=True)
 
 # Confidence interval
 alpha=0.01
 ub  = bihgpy.upper(N,n,k,alpha/2,a,b)
 lb  = bihgpy.lower(N,n,k,alpha/2,a,b)
 ub2 = bihgpy.upper(N,n,k,alpha,a,b)
-mean = bihgpy.posterior_mean(N,n,k,a=1,b=1)
+mean = bihgpy.K_posterior_mean(N,n,k,a=1,b=1)
 
 fig = plt.figure()
 ax = fig.add_subplot(1,1,1)
