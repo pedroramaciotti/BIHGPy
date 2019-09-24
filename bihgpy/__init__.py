@@ -4,3 +4,5 @@ from .posterior import K_posterior_mean
 
 from .bounds import upper
 from .bounds import lower
+
+from .betabinomial import alpha, beta

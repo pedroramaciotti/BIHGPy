@@ -20,7 +20,7 @@ k=0
 
 
 # computing the bayesian inference
-K_dom,K_img = bihgpy.K_posterior_distribution(N,n,k,a,b,omit_tail=True)
+K_dom,K_img = bihgpy.K_posterior_distribution(N,n,k,a,b)
 
 # Confidence interval
 alpha=0.01
