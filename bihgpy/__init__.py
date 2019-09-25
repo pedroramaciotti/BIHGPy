@@ -6,3 +6,4 @@ from .bounds import upper
 from .bounds import lower
 
 from .betabinomial import alpha, beta
+from .betabinomial import beta_binomial
